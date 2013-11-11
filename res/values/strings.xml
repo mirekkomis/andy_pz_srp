@@ -1,0 +1,36 @@
+<resources>
+
+    <string name="app_name">Pływalnia Delfinek</string>
+	<string name="sample_description">sample</string>
+    
+    
+    <string name="home_intro">Witajcie w aplikacji o pływalni Delfinek</string>
+    
+    <string name="sample_title">News</string>
+    <string name="sample_news">Oto przykładowy news</string>
+    <string name="sample_data">dodano: 18.10.2013</string>
+    
+    
+    <string name="share_message">Polecam Ci świetną aplikację o pływani Delfinek! \nSprawdź koniecznie:\n http://www.dolphinsschwimhalle.com</string>
+    
+    
+    
+    <string-array name="menu_names">
+        <item>Aktualności</item>
+        <item>Galeria</item>
+        <item>Cennik</item>
+        <item>Rezerwacje</item>
+        <item>Kontakt</item>
+        <item>Zaloguj</item>
+    </string-array>
+    
+    <string-array name="gallery_descriptions">
+        <item>Nasz basen sportowy z wspaniałym widokiem za oknem.</item>
+        <item>Basen sportowo-rekreacyjny dla początkujących.</item>
+        <item>Kompleks relaksacyjny z jacuzzi oraz barem.</item>
+        <item>Sala do wynajęcia na prywatne imprezy.</item>
+    </string-array>
+    
+    <string name="contact">Pływalnie "Delfinek"\nBulwar Słoneczny, 57&#8211;257 Wrocław\n\ne-mail: kontakt@plywalnia&#8211;delfinek.pl\ntel: 888&#8211;021&#8211;123\n\n\nGodziny otwarcia:\npon&#8211;pt: 8:00&#8211;20:00\nsob&#8211;nie: 10:00&#8211;18:00\n\nMapka Dojazdu:</string>
+    
+</resources>
