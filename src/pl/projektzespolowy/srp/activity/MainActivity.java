@@ -4,6 +4,7 @@ import pl.projektzespolowy.srp.R;
 import pl.projektzespolowy.srp.fragment.ContactFragment;
 import pl.projektzespolowy.srp.fragment.GalleryFragment;
 import pl.projektzespolowy.srp.fragment.NewsFragment;
+import pl.projektzespolowy.srp.fragment.PricesFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -133,9 +134,14 @@ public class MainActivity extends FragmentActivity {
 				GalleryFragment fag1 = new GalleryFragment();
 				ft.replace(R.id.content_frame, fag1);
 				break;
+			case 2 :
+				PricesFragment fag3 = new PricesFragment();
+				ft.replace(R.id.content_frame, fag3);
+				break;
 			case 4 :
 				ContactFragment fag2 = new ContactFragment();
 				ft.replace(R.id.content_frame, fag2);
+				setTitle(getResources().getString(R.string.app_name));
 				break;
 			default:
 				break;

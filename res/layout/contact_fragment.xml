@@ -11,20 +11,50 @@
 	        android:layout_height="wrap_content"
 	        android:orientation="vertical"
 	        android:background="@android:drawable/dialog_holo_light_frame">
-        <TextView 
-	        android:padding="5dp"
-	        android:paddingTop="15dp"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/contact"
-	        android:textSize="14sp"/>
+	        
+	         <TextView 
+	            android:id="@+id/cotact_info"
+	            android:gravity="center_horizontal"
+		        android:padding="5dp"
+		        android:paddingTop="15dp"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/contact_addr"
+		        android:textSize="14sp"/>
         
-        <ImageView 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="15dp"
-            android:contentDescription="@string/sample_description"
-            android:scaleType="centerInside"
-            android:src="@drawable/kontakt"/>
+	        <ImageView 
+	            android:id="@+id/contact_map"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:paddingBottom="15dp"
+	            android:contentDescription="@string/sample_description"
+	            android:scaleType="fitCenter"
+	            android:src="@drawable/kontakt"/>
+
+	         <Button
+	            android:background="@android:drawable/alert_light_frame"
+	            android:id="@+id/navi_button"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:text="@string/navigate"
+	            android:drawableLeft="@android:drawable/ic_menu_mylocation" />
+	        
+	        <Button
+	            android:background="@android:drawable/alert_light_frame"
+	            android:id="@+id/call_button"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:text="@string/call"
+	            android:drawableLeft="@android:drawable/sym_call_outgoing" />
+	        
+	         <Button
+	            android:background="@android:drawable/alert_light_frame"
+	            android:id="@+id/mail_button"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:text="@string/mail"
+	            android:drawableLeft="@android:drawable/sym_action_email" />
+
+       
         </LinearLayout>
 </ScrollView>

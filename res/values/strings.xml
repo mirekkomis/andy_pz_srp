@@ -13,7 +13,17 @@
     
     <string name="share_message">Polecam Ci świetną aplikację o pływani Delfinek! \nSprawdź koniecznie:\n http://www.dolphinsschwimhalle.com</string>
     
+    <string name="val">zł</string>
+    <string name="term1">PN-PT</string>
+    <string name="term2">SB-ND</string>
     
+    <string-array name="prices_desc">
+        <item>Dorośli</item>
+        <item>Uczniowie</item>
+        <item>Studenci</item>
+        <item>Dzieci</item>
+        <item>Seniorzy</item>
+    </string-array>
     
     <string-array name="menu_names">
         <item>Aktualności</item>
@@ -31,6 +41,11 @@
         <item>Sala do wynajęcia na prywatne imprezy.</item>
     </string-array>
     
-    <string name="contact">Pływalnie "Delfinek"\nBulwar Słoneczny, 57&#8211;257 Wrocław\n\ne-mail: kontakt@plywalnia&#8211;delfinek.pl\ntel: 888&#8211;021&#8211;123\n\n\nGodziny otwarcia:\npon&#8211;pt: 8:00&#8211;20:00\nsob&#8211;nie: 10:00&#8211;18:00\n\nMapka Dojazdu:</string>
+    
+    <string name="contact_addr">Bulwar Słoneczny,\n57&#8211;257 Wrocław\n\nGodziny otwarcia:\npon&#8211;pt: 8:00&#8211;20:00\nsob&#8211;nie: 10:00&#8211;18:00</string>
+    <string name="call">888&#8211;021&#8211;123</string>
+ 	<string name="navigate">Nawiguj do Nas</string>   
+    <string name="mail">kontakt@delfinek.pl</string>
+    <string name="contact"></string>
     
 </resources>
