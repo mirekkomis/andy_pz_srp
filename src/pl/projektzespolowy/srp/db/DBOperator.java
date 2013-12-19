@@ -84,10 +84,11 @@ public class DBOperator {
 	public void updateNews(News[] table)
 	{
 		open();
-		database.rawQuery(News.DROP_TABLE_NEWS, null);
+		database.delete(News.NAME_TABLE, null, null);
+		
 		for(News n : table)
 		{
-			database.rawQuery(n.getInsertQuery(), null);
+			database.insert(News.NAME_TABLE, null, n.getInsertValues());
 		}
 		close();
 	}

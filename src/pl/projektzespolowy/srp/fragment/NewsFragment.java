@@ -6,13 +6,10 @@ import pl.projektzespolowy.srp.db.DBHelper;
 import pl.projektzespolowy.srp.db.DBOperator;
 import pl.projektzespolowy.srp.db.News;
 import pl.projektzespolowy.srp.utils.Settings;
-import android.app.ProgressDialog;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.SyncStateContract.Helpers;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,21 +30,28 @@ public class NewsFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.list_fragment, null);
 		initViews(view, inflater);
-		if(Settings.isOnline(getActivity()))
-			(new NewsTask()).execute();
+		
 		return view;
 	}
 	
 	private void initViews(View view, LayoutInflater inflater)
 	{
 		tf =Typeface.createFromAsset(getActivity().getAssets(), "font2.otf");
-		operator = DBOperator.getInstance(new DBHelper(getActivity()));
+		
 		
 		mainList = (ListView)view.findViewById(R.id.main_site_listView);
 		adapter = new NewsAdapter(inflater);
-		adapter.upDateEntries(operator.getNews());
-		
         mainList.setAdapter(adapter);
+        
+        updateList();
+        
+        if(Settings.isOnline(getActivity()))
+			(new NewsTask()).execute();
+	}
+	
+	private void updateList()
+	{
+		(new LoadTask()).execute();
 	}
 	
 	class NewsAdapter extends BaseAdapter
@@ -104,29 +108,48 @@ public class NewsFragment extends Fragment {
 	       }
     }
 	
-	private class NewsTask extends AsyncTask<Void, Void, News[]>
+	private class LoadTask extends AsyncTask<Void,Void,News[]>
 	{
-
-		ProgressDialog prog;
-		
-		@Override protected void onPreExecute() {
-			prog = ProgressDialog.show(getActivity(), "Pobieranie", "Pobieranie Aktualnoœci");
+		@Override
+		protected void onPreExecute() {
 			super.onPreExecute();
 		}
 		
-		@Override protected News[] doInBackground(Void... params) {
+		@Override
+		protected News[] doInBackground(Void... params) {
+			if(operator == null)
+				operator = DBOperator.getInstance(new DBHelper(getActivity()));
+			
+			News[] n = operator.getNews();
+			return n;
+		}
+		
+		@Override
+		protected void onPostExecute(News[] result) {
+			adapter.upDateEntries(result);
+			super.onPostExecute(result);
+		}
+		
+	}
+	
+	private class NewsTask extends AsyncTask<Void, Void, Void>
+	{
+		@Override protected void onPreExecute() {
+			super.onPreExecute();
+		}
+		
+		@Override protected Void doInBackground(Void... params) {
 			News[] news = NewsDownloader.downloadNews();
 			if(news!=null && news.length > 0)
 			{
 				operator.updateNews(news);
 			}
-			return operator.getNews();
+			return null;
 		}
 		
-		@Override protected void onPostExecute(News[] result) {
-			prog.dismiss();
-			adapter.upDateEntries(result);
-			super.onPostExecute(result);
+		@Override protected void onPostExecute(Void v) {
+			updateList();
+			super.onPostExecute(v);
 		}
 	}
 }

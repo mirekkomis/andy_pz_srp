@@ -66,6 +66,8 @@ public class MainActivity extends FragmentActivity {
 	    protected void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.main_layout);
+	        
+	        
 	        inflater = (LayoutInflater) getApplicationContext()
 	        		.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
 	        

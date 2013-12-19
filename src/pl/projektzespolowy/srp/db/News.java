@@ -1,5 +1,7 @@
 package pl.projektzespolowy.srp.db;
 
+import android.content.ContentValues;
+
 public class News {
 
 	public static final String NAME_TAG = "news";
@@ -10,15 +12,16 @@ public class News {
 	public static final String ISACTUAL_TAG = "czyAktualne";
 	public static final String DATA_TAG = "Data";
 	
-	public static final String CREATE_TABLE_NEWS = "CREATE TABLE "+NAME_TABLE+" ("
+	public static final String CREATE_TABLE_NEWS = "CREATE TABLE "+NAME_TABLE+"("
 			+ID_TAG+" integer primary key, "
 			+HEADER_TAG+" text NOT NULL,"
 			+CONTENT_TAG+" text NOT NULL,"
 			+DATA_TAG+" text DEFAULT NULL); ";
 		
-	public static final String INSERT_NEWS = "INSERT INTO "+NAME_TABLE+" VALUES ";
+	public static final String INSERT_NEWS = "INSERT INTO "+NAME_TABLE+" VALUES";
 		
 	public static final String DROP_TABLE_NEWS = "DROP TABLE IF EXISTS "+NAME_TABLE;
+	public static final String TRUNCATE_TABLE_NEWS = "TRUNCATE TABLE IF EXISTS "+NAME_TABLE;
 	
 	private long _id;
 	private String header, content, data;
@@ -52,14 +55,15 @@ public class News {
 		return data;
 	}
 	
-	public String getInsertQuery()
+	public ContentValues getInsertValues()
 	{
-		return INSERT_NEWS + 
-				"("
-				+ID_TAG+"="+_id+","
-				+HEADER_TAG+"=\'"+header+"\',"
-				+CONTENT_TAG+"=\'"+content+"\',"
-				+DATA_TAG+"="+data
-				+");";
+		
+		ContentValues cw = new ContentValues();
+		cw.put(News.ID_TAG, _id);
+		cw.put(News.HEADER_TAG, header);
+		cw.put(News.CONTENT_TAG, content);
+		cw.put(News.DATA_TAG, data);
+		
+		return cw;
 	}
 }

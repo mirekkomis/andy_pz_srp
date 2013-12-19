@@ -10,7 +10,7 @@ import pl.projektzespolowy.srp.db.News;
 
 public class NewsDownloader {
 
-	public static final String url = "http://192.168.0.15/pz_srp/scripts/act.php";
+	public static final String url = "http://serwer1326625.home.pl/scripts/act.php";
 	
 
 	public static News[] downloadNews()
