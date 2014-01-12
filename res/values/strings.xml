@@ -17,6 +17,14 @@
     <string name="term1">PN-PT</string>
     <string name="term2">SB-ND</string>
     
+    <string name="short_monday">Pn</string>
+    <string name="short_tuesday">Wt</string>
+    <string name="short_wensday">Śr</string>
+    <string name="short_thursday">Cz</string>
+    <string name="short_friday">Pt</string>
+    <string name="short_saturday">Sb</string>
+    <string name="short_sunday">Nd</string>
+    
     <string-array name="prices_desc">
         <item>Dorośli</item>
         <item>Uczniowie</item>
@@ -32,6 +40,21 @@
         <item>Rezerwacje</item>
         <item>Kontakt</item>
         <item>Zaloguj</item>
+    </string-array>
+    
+    <string-array name="months">
+        <item>Styczeń</item>
+        <item>Luty</item>
+        <item>Marzec</item>
+        <item>Kwiecień</item>
+        <item>Maj</item>
+        <item>Czerwiec</item>
+        <item>Lipiec</item>
+        <item>Sierpień</item>
+        <item>Wrzesień</item>
+        <item>Pazdziernik</item>
+        <item>Listopad</item>
+        <item>Grudzień</item>
     </string-array>
     
     <string-array name="gallery_descriptions">

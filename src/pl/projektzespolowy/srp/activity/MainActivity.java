@@ -6,6 +6,7 @@ import pl.projektzespolowy.srp.fragment.ContactFragment;
 import pl.projektzespolowy.srp.fragment.GalleryFragment;
 import pl.projektzespolowy.srp.fragment.NewsFragment;
 import pl.projektzespolowy.srp.fragment.PricesFragment;
+import pl.projektzespolowy.srp.fragment.ReservationFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -140,6 +141,10 @@ public class MainActivity extends FragmentActivity {
 			case 2 :
 				PricesFragment fag3 = new PricesFragment();
 				ft.replace(R.id.content_frame, fag3);
+				break;
+			case 3 :
+				ReservationFragment fag4 = new ReservationFragment();
+				ft.replace(R.id.content_frame, fag4);
 				break;
 			case 4 :
 				ContactFragment fag2 = new ContactFragment();
