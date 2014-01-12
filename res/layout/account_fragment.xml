@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper 
+        xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/form_flipper"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" >
+	    <include layout="@layout/login_layout"/>
+		<include layout="@layout/register_layout"/>
+		<include layout="@layout/logout_layout"/>
+</ViewFlipper>
+

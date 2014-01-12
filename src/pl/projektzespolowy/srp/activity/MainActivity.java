@@ -1,6 +1,7 @@
 package pl.projektzespolowy.srp.activity;
 
 import pl.projektzespolowy.srp.R;
+import pl.projektzespolowy.srp.fragment.AccountFragment;
 import pl.projektzespolowy.srp.fragment.ContactFragment;
 import pl.projektzespolowy.srp.fragment.GalleryFragment;
 import pl.projektzespolowy.srp.fragment.NewsFragment;
@@ -145,6 +146,9 @@ public class MainActivity extends FragmentActivity {
 				ft.replace(R.id.content_frame, fag2);
 				setTitle(getResources().getString(R.string.app_name));
 				break;
+			case 5 :
+				AccountFragment fag5 = new AccountFragment();
+				ft.replace(R.id.content_frame, fag5);
 			default:
 				break;
 			}

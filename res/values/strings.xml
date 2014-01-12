@@ -41,6 +41,28 @@
         <item>Sala do wynajęcia na prywatne imprezy.</item>
     </string-array>
     
+    <string name="hello">Witaj</string>
+    <string name="login_btn">Zaloguj</string>
+    <string name="register_btn">Zarejestruj</string>
+    <string name="logout_btn">Wyloguj</string>
+    <string name="noval">brak</string>
+    <string name="email_addr">E-mail</string>
+    <string name="passw">Hasło</string>
+    <string name="passw2">Powtórz hasło</string>
+    <string name="name">Imię</string>
+    <string name="surname">Nazwisko</string>
+    <string name="phone">Numer telefonu</string>
+    <string name="birth">Data urodzenia</string>
+    <string name="register_info">Nie masz konta? Zarejestruj się!</string>
+    <string name="login_info">Masz już konto? Zaloguj się!</string>
+    
+    <string name="obligatory_field">To pole jest wymagane</string>
+    <string name="wrong_mail">Podany E-mail jest już zarejestrowany</string>
+    <string name="wrong_mail2">Podano błędny adres e-mail</string>
+    <string name="wrong_pass">Hasła nie zgadzają się</string>
+    <string name="wrong_pass2">Hasło powinno składać się z minimum 8 znaków</string>
+    <string name="wrong_tel">Numer telefonu powinien zawierać od 7 do 15 cyfr</string>
+    <string name="wrong_tel2">Numer telefonu może zawierać tylko cyfry</string>
     
     <string name="contact_addr">Bulwar Słoneczny,\n57&#8211;257 Wrocław\n\nGodziny otwarcia:\npon&#8211;pt: 8:00&#8211;20:00\nsob&#8211;nie: 10:00&#8211;18:00</string>
     <string name="call">888&#8211;021&#8211;123</string>

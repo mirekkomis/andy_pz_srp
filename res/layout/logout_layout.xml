@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView 
+        xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical" 
+	    android:background="@color/layout_backgroud"
+	    >
+	    <TableLayout 
+	        android:id="@+id/logout_form"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@android:drawable/dialog_holo_light_frame"
+	        android:padding="20dp"
+	        >
+	         <TableRow 
+	            android:layout_width="match_parent"
+	            android:layout_gravity="center"
+	            android:gravity="center"
+	            android:paddingBottom="15dp"
+	            >
+	             <TextView 
+	                 android:id="@+id/hello_view"
+	                 android:layout_width="wrap_content"
+	                 android:layout_height="wrap_content"
+	                 android:text="@string/hello"
+	                 android:textSize="26sp"
+	                 android:textStyle="bold"/>
+	         </TableRow>
+	        <TableRow >
+	            <TextView
+	                android:id="@+id/email_lab"
+	                android:textColor="#372c24"
+	                 android:layout_width="wrap_content"
+                	android:layout_height="wrap_content"
+	                android:text="@string/email_addr"
+	                android:paddingRight="10dp"/>
+	            
+	            <TextView
+	                android:id="@+id/email_val"
+	                android:textColor="#372c24"
+                 	android:layout_width="wrap_content"
+              		android:layout_height="wrap_content"
+	                android:text="@string/noval"/>
+	        </TableRow>
+	        <TableRow >
+	            <TextView
+	                android:id="@+id/name_lab"
+	                android:textColor="#372c24"
+	                android:layout_width="wrap_content"
+                	android:layout_height="wrap_content"
+	                android:text="@string/name"
+	                android:paddingRight="10dp"/>
+	            
+	            <TextView
+	                android:id="@+id/name_val"
+	                android:textColor="#372c24"
+	                android:layout_width="wrap_content"
+               		android:layout_height="wrap_content"
+	                android:text="@string/noval"/>
+	        </TableRow>
+	        <TableRow >
+	            <TextView
+	                android:id="@+id/surname_lab"
+	                android:textColor="#372c24"
+	                android:layout_width="wrap_content"
+                	android:layout_height="wrap_content"
+	                android:text="@string/surname"
+	                android:paddingRight="10dp"/>
+	            
+	            <TextView
+	                android:id="@+id/surname_val"
+	                android:textColor="#372c24"
+	                android:layout_width="wrap_content"
+               		android:layout_height="wrap_content"
+	                android:text="@string/noval"/>
+	        </TableRow>
+	        <TableRow >
+	            <TextView
+	                android:id="@+id/phone_lab"
+	                android:textColor="#372c24"
+	                android:layout_width="wrap_content"
+                	android:layout_height="wrap_content"
+	                android:text="@string/phone"
+	                android:paddingRight="10dp"/>
+	            
+	            <TextView
+	                android:id="@+id/phone_val"
+	                android:textColor="#372c24"
+	                android:layout_width="wrap_content"
+               		android:layout_height="wrap_content"
+	                android:text="@string/noval"/>
+	        </TableRow>
+	        
+	        <TableRow 
+	            android:layout_width="match_parent"
+	            android:layout_gravity="center"
+	            android:gravity="center"
+	            >
+	            <Button
+	                android:id="@+id/logout_btn"
+	           		android:layout_marginTop="10dip"
+	           		android:background="@android:drawable/alert_light_frame"
+	           	    android:layout_width="match_parent"
+	           	    android:layout_height="wrap_content"
+	           	    android:layout_span="2"
+	           	    android:text="@string/logout_btn"/>
+	        </TableRow>
+	    </TableLayout>
+</ScrollView>

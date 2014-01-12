@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView 
+        xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical" 
+	    android:background="@color/layout_backgroud"
+	    >
+	    <LinearLayout 
+	        android:id="@+id/login_form"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:background="@android:drawable/dialog_holo_light_frame"
+	        android:padding="20dp">
+	        
+	        <TextView
+	            android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#372c24"
+                android:text="@string/email_addr"/>
+            <EditText 
+                android:id="@+id/email_val"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:layout_marginBottom="20dip"
+                android:singleLine="true"
+                android:inputType="textEmailAddress"/>
+       			
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#372c24"
+                android:text="@string/passw"/>
+            <EditText 
+                android:id="@+id/passw_val"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:layout_marginBottom="20dip"
+                android:singleLine="true"
+                android:inputType="textPassword"/>
+          
+          <Button 
+                android:id="@+id/login_btn"
+                android:background="@android:drawable/alert_light_frame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:text="@string/login_btn"/>
+          
+          <TextView 
+                android:id="@+id/link_to_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dip"
+                android:layout_marginBottom="40dip"
+                android:text="@string/register_info"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="#0b84aa"/> 
+        </LinearLayout>
+</ScrollView>

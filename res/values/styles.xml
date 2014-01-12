@@ -7,6 +7,7 @@
     
     <style name="ActionBarSytyle" parent="@android:style/Widget.Holo.Light.ActionBar.TabText.Inverse">
         <item name="android:background">@color/actionbar_background</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
 </resources>
