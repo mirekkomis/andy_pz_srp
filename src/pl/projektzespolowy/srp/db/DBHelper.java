@@ -8,17 +8,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
 	 private static final String DATABASE_NAME = "dolphin_db";
 	 private static final int DATABASE_VERSION = 1;
-	 
-	 
-	 String[] startPrices = 
-		 {
-			"15", "18",
-			"9", "10",
-			"11", "12",
-			"9", "10",
-			"9", "10"
-		 };
-	 
+
 	 public DBHelper(Context context) 
 	 {
 		    super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -30,7 +20,9 @@ public class DBHelper extends SQLiteOpenHelper{
 	{
 		db.execSQL(News.CREATE_TABLE_NEWS);
 		db.execSQL(PricesTable.CREATE_TABLE_PRICES);
-		db.execSQL(PricesTable.insert(startPrices));
+		db.execSQL(PricesTable.initialInsert());
+		db.execSQL(OpeningHours.CREATE_TABLE_HOURS);
+		db.execSQL(OpeningHours.initialInsert());
 	}
 
 

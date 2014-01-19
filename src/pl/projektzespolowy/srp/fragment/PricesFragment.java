@@ -18,7 +18,7 @@ public class PricesFragment extends Fragment {
 	ListView mainList;
 	private Typeface tf;
 	private String[] descr;
-	private String[] prices;
+	private String[][] prices;
 	private String val;
 	
 	@Override
@@ -41,17 +41,17 @@ public class PricesFragment extends Fragment {
 		
 		TextView tw;
 		(tw = (TextView)convertView.findViewById(R.id.prices_title))
-			.setText("");
+			.setText(descr[0]);
 		tw.setTypeface(tf);
 		
 		
 		(tw = (TextView)convertView.findViewById(R.id.prices_val1))
-			.setText(getResources().getString(R.string.term1));
+			.setText(descr[1]);
 		tw.setTypeface(tf);
 		
 		
 		(tw = (TextView)convertView.findViewById(R.id.prices_val2))
-			.setText(getResources().getString(R.string.term2));
+			.setText(descr[2]);
 		tw.setTypeface(tf);
 		
 		
@@ -71,12 +71,12 @@ public class PricesFragment extends Fragment {
 
 		@Override																// 0   1    2    3  4 
 		public int getCount() {													// 01  23   45
-			return descr.length;
+			return prices.length;
 		}
 
 		@Override
-		public Object getItem(int position) {
-			return descr[position];
+		public String[] getItem(int position) {
+			return prices[position];
 		}
 
 		@Override
@@ -88,20 +88,20 @@ public class PricesFragment extends Fragment {
 		public View getView(int position, View convertView, ViewGroup parent) {
 			
 				convertView = inflater.inflate(R.layout.prices_element, null);
-				
+				String[] p = getItem(position);
 				TextView tw;
 				(tw = (TextView)convertView.findViewById(R.id.prices_title))
-					.setText(descr[position]);
+					.setText(p[0]);
 				tw.setTypeface(tf);
 				
 				
 				(tw = (TextView)convertView.findViewById(R.id.prices_val1))
-					.setText(prices[position*2]+val);
+					.setText(p[1]);
 				tw.setTypeface(tf);
 				
 				
 				(tw = (TextView)convertView.findViewById(R.id.prices_val2))
-					.setText(prices[position*2+1]+val);
+					.setText(p[2]+val);
 				tw.setTypeface(tf);
 				
 				return convertView;

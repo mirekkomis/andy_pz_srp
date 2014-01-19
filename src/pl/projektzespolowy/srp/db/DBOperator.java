@@ -39,20 +39,61 @@ public class DBOperator {
 		return database.rawQuery(query, null);
 	}
 	
-	public String[] getPrices()
+	public String[][] getPrices()
 	{
 		open();
 		Cursor cursor = getPricesCursor();
 		int ccount = cursor.getCount();
-		String[] scores = new String[ccount];
+		String[][] scores = new String[ccount][3];
 		cursor.moveToFirst();
 		for(int i = 0; i<ccount; i++)
 		{
-			scores[i] =  cursor.getString(1);
+			scores[i][0] =  cursor.getString(1);
+			scores[i][1] =  cursor.getString(2);
+			scores[i][2] =  cursor.getString(3);
 			cursor.moveToNext();
 		}
 		close();
 		return scores;
+	}
+	
+	public void updatePrices(String[] personTypes, String[] tariff, String[] prices)
+	{
+		open();
+		database.delete(PricesTable.PRICES_TABLE, null, null);
+		database.execSQL(PricesTable.insert(personTypes, tariff, prices));
+		close();
+	}
+	
+	public Cursor getHoursCursor()
+	{
+		String query = "SELECT * FROM "+OpeningHours.HOURS_TABLE;
+		return database.rawQuery(query, null);
+	}
+	
+	public String[][] getHours()
+	{
+		open();
+		Cursor cursor =  getHoursCursor();
+		int ccount = cursor.getCount();
+		String[][] scores = new String[ccount][2];
+		cursor.moveToFirst();
+		for(int i = 0; i<ccount; i++)
+		{
+			scores[i][0] =  cursor.getString(2);
+			scores[i][1] =  cursor.getString(3);
+			cursor.moveToNext();
+		}
+		close();
+		return scores;
+	}
+	
+	public void updateHours(String[] days, String[] open, String[] close)
+	{
+		open();
+		database.delete(OpeningHours.HOURS_TABLE, null, null);
+		database.execSQL(OpeningHours.insert(days, open, close));
+		close();
 	}
 	
 	public Cursor getNewsCursor()

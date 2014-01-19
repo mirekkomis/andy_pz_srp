@@ -120,8 +120,9 @@
     
     
     
-    <ListView
-        android:id="@+id/calendar_list"
+    <GridView
+        android:id="@+id/calendar_grid"
+        android:numColumns="7"
         android:layout_below="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

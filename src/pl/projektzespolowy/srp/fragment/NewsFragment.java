@@ -144,6 +144,10 @@ public class NewsFragment extends Fragment {
 			{
 				operator.updateNews(news);
 			}
+			
+			NewsDownloader.updatePrices();
+			NewsDownloader.updateOpeningHours();
+			
 			return null;
 		}
 		

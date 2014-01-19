@@ -26,11 +26,9 @@
     <string name="short_sunday">Nd</string>
     
     <string-array name="prices_desc">
-        <item>Dorośli</item>
-        <item>Uczniowie</item>
-        <item>Studenci</item>
-        <item>Dzieci</item>
-        <item>Seniorzy</item>
+        <item>Typ</item>
+        <item>Taryfa</item>
+        <item>Cena</item>
     </string-array>
     
     <string-array name="menu_names">
@@ -87,7 +85,7 @@
     <string name="wrong_tel">Numer telefonu powinien zawierać od 7 do 15 cyfr</string>
     <string name="wrong_tel2">Numer telefonu może zawierać tylko cyfry</string>
     
-    <string name="contact_addr">Bulwar Słoneczny,\n57&#8211;257 Wrocław\n\nGodziny otwarcia:\npon&#8211;pt: 8:00&#8211;20:00\nsob&#8211;nie: 10:00&#8211;18:00</string>
+    <string name="contact_addr">Bulwar Słoneczny,\n57&#8211;257 Wrocław\n\nGodziny otwarcia:</string><!-- \npon&#8211;pt: 8:00&#8211;20:00\nsob&#8211;nie: 10:00&#8211;18:00 -->
     <string name="call">888&#8211;021&#8211;123</string>
  	<string name="navigate">Nawiguj do Nas</string>   
     <string name="mail">kontakt@delfinek.pl</string>
