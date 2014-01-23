@@ -63,6 +63,15 @@
     <string name="you_have_reservation">Masz już rezerwacje w tym terminie. Przejdź do:</string>
     <string name="goto_reservation">Moje Rezerwacje &gt;</string>
     
+    <string name="open">Czynne</string>
+    <string name="close">Nieczynne</string>
+    <string name="past">Dni przeszłe</string>
+    
+    <string name="empty">Puste</string>
+    <string name="full">Brak miejsc</string>
+    <string name="available">Są miejsca</string>
+    <string name="myres">Własna Rezerwacja</string>
+    
     <string-array name="prices_desc">
         <item>Typ</item>
         <item>Taryfa</item>

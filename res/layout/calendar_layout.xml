@@ -124,11 +124,36 @@
         android:id="@+id/calendar_grid"
         android:numColumns="7"
         android:layout_below="@+id/header"
-        android:layout_above="@+id/header_month"
+        android:layout_above="@+id/calendar_desc"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="#0FFF"
         android:dividerHeight="0dp"
         />
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/calendar_desc" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/header_month">
+        <TextView 
+            android:drawableLeft="@drawable/calendar_blue_stroke"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/open"/>
+        <TextView 
+            android:drawableLeft="@drawable/calendar_red_stroke"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="@string/close"/>
+        <TextView 
+            android:drawableLeft="@drawable/calendar_gray_stroke"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="@string/past"/>
+    </LinearLayout>
 
 </RelativeLayout>

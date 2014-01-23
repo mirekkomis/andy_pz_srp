@@ -76,11 +76,42 @@
         android:id="@+id/tracks_list"
         android:layout_marginTop="1dp"
         android:layout_below="@+id/header"
-        android:layout_above="@+id/header_day"
+        android:layout_above="@+id/calendar_desc"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="#0FFF"
         android:dividerHeight="1dp"
         />
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/calendar_desc" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/header_day">
+        <TextView 
+            android:drawableLeft="@drawable/calendar_blue_stroke"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/empty"/>
+        <TextView 
+            android:drawableLeft="@drawable/calendar_red_stroke"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="@string/full"/>
+        <TextView 
+            android:drawableLeft="@drawable/calendar_yellow_stroke"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="@string/available"/>
+        <TextView 
+            android:drawableLeft="@drawable/calendar_green_stroke"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="@string/myres"/>
+    </LinearLayout>
 </RelativeLayout>
