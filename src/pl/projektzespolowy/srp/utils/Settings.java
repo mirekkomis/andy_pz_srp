@@ -1,10 +1,15 @@
 package pl.projektzespolowy.srp.utils;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.preference.PreferenceManager;
 
 public class Settings {
+
+	private static Context appContext;
+	private static SharedPreferences prefs;
 
 	/**
 	 * Checks if Device is connected to Internet
@@ -18,5 +23,11 @@ public class Settings {
 		ConnectivityManager conMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
 		return activeNetwork != null && activeNetwork.isConnected();
+	}
+	
+	public static SharedPreferences getPrefs(Context context) {
+		if (appContext == null)
+			appContext = context;
+		return prefs == null ? (prefs = PreferenceManager.getDefaultSharedPreferences(context)) : prefs;
 	}
 }

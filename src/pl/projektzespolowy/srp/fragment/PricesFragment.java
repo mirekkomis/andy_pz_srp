@@ -40,9 +40,9 @@ public class PricesFragment extends Fragment {
 		View convertView = inflater.inflate(R.layout.prices_element, null);
 		
 		TextView tw;
-		(tw = (TextView)convertView.findViewById(R.id.prices_title))
-			.setText(descr[0]);
-		tw.setTypeface(tf);
+//		(tw = (TextView)convertView.findViewById(R.id.prices_title))
+//			.setText(descr[0]);
+//		tw.setTypeface(tf);
 		
 		
 		(tw = (TextView)convertView.findViewById(R.id.prices_val1))
@@ -90,9 +90,6 @@ public class PricesFragment extends Fragment {
 				convertView = inflater.inflate(R.layout.prices_element, null);
 				String[] p = getItem(position);
 				TextView tw;
-				(tw = (TextView)convertView.findViewById(R.id.prices_title))
-					.setText(p[0]);
-				tw.setTypeface(tf);
 				
 				
 				(tw = (TextView)convertView.findViewById(R.id.prices_val1))

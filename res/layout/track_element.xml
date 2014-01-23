@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:background="@drawable/track_background"
+    android:weightSum="8">
+	<TextView 
+	    android:id="@+id/trackNr"
+	    android:layout_marginTop="1dp"
+	    android:layout_width="0dp"
+	    android:layout_weight="1"
+	    android:background="#4d4d4d"
+   		android:textColor="#FFFFFF"
+   		android:gravity="center"
+   		android:lines="2"
+   		android:textStyle="bold"
+	    android:layout_height="match_parent"/>
+	<HorizontalScrollView 
+	    android:layout_width="0dp"
+	    android:layout_weight="7"
+	    android:scrollbars="none"
+	    android:layout_height="match_parent">
+	    <LinearLayout 
+	        android:padding="2dp"
+	        android:id="@+id/hoursList"
+	        android:orientation="horizontal"
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        />
+	</HorizontalScrollView>
+</LinearLayout>

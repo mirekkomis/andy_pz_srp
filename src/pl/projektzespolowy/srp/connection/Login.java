@@ -5,18 +5,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
+
 public class Login {
 
 	public static final String url = "https://serwer1326625.home.pl/scripts/log.php";
 	public static final String regurl = "https://serwer1326625.home.pl/scripts/reg.php";
 	
-	private static final String
+	public static final String
 		TYPE_TAG = "type",
 		ID_KLIENT_TAG = "idKlient",
 		IMIE_TAG = "Imie",
 		NAZWISKO_TAG = "Nazwisko",
 		TEL_TAG = "Telefon",
-		ID_UZYTKO = "idUzytkownik";
+		ID_UZYTKO = "idUzytkownik",
+		MAIL_TAG = "mail";
 	
 	private static LoginResponse login = null;
 	
@@ -94,6 +96,7 @@ public class Login {
 
 	public static class LoginResponse
 	{
+		//private String prefs = "prefs_file";
 		public boolean type = false;
 		public String mail, imie, nazw, tel;
 		public long idKlient, idUzytkownik;
@@ -102,5 +105,52 @@ public class Login {
 		{
 			this.type = type == 1;
 		}
+		
+//		public void saveToSharedPrefs(Activity activity)
+//		{
+//			SharedPreferences.Editor edit = 
+//					activity.getSharedPreferences(prefs, 0).edit();
+//			
+//			edit.putString(IMIE_TAG, imie);
+//			edit.putString(NAZWISKO_TAG, nazw);
+//			edit.putString(TEL_TAG, tel);
+//			edit.putString(MAIL_TAG, mail);
+//			edit.putLong(ID_KLIENT_TAG, idKlient);
+//			edit.putLong(ID_UZYTKO, idUzytkownik);
+//			
+//			edit.commit();
+//			
+//		}
+//		
+//		public void logout(Activity activity)
+//		{
+//			SharedPreferences.Editor edit = 
+//					activity.getSharedPreferences(prefs, 0).edit();
+//			
+//			edit.putString(IMIE_TAG, "");
+//			edit.putString(NAZWISKO_TAG, "");
+//			edit.putString(TEL_TAG, "");
+//			edit.putString(MAIL_TAG, "");
+//			edit.putLong(ID_KLIENT_TAG, 0l);
+//			edit.putLong(ID_UZYTKO, 0);
+//			
+//			edit.commit();
+//			
+//		}
+//		
+//		public boolean loginFromPrefs(Activity activity)
+//		{
+//			SharedPreferences pref= 
+//					activity.getSharedPreferences(prefs, 0);
+//			
+//			imie = pref.getString(IMIE_TAG, "");
+//			nazw = pref.getString(NAZWISKO_TAG, "");
+//			tel = pref.getString(TEL_TAG, "");
+//			mail = pref.getString(MAIL_TAG, "");
+//			idKlient = pref.getLong(ID_KLIENT_TAG, 0l);
+//			idUzytkownik = pref.getLong(ID_UZYTKO, 0);
+//			
+//			return idKlient != 0 && !mail.contains("");
+//		}
 	}
 }

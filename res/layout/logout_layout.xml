@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView 
-        xmlns:android="http://schemas.android.com/apk/res/android"
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
-	    android:orientation="vertical" 
-	    android:background="@color/layout_backgroud"
-	    >
+
+	    <RelativeLayout 
+	        xmlns:android="http://schemas.android.com/apk/res/android"
+	        android:background="@color/layout_backgroud"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        >
 	    <TableLayout 
 	        android:id="@+id/logout_form"
 	        android:layout_width="match_parent"
@@ -107,4 +107,73 @@
 	           	    android:text="@string/logout_btn"/>
 	        </TableRow>
 	    </TableLayout>
-</ScrollView>
+	    <LinearLayout
+	        android:background="@color/layout_backgroud" 
+	        android:layout_below="@+id/logout_form"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical">
+	        <TextView
+		             android:layout_width="match_parent"
+		             android:layout_height="40dp" 
+		             android:gravity="center"
+		             android:text="@string/myRes"
+		             android:textColor="#FFF"
+		              android:background="#4d4d4d"/>
+	       <LinearLayout
+	            android:background="@color/layout_backgroud"
+		        android:layout_width="match_parent"
+		        android:layout_height="40dp"
+		        android:orientation="horizontal"
+		        android:weightSum="7"
+		        android:divider="@drawable/calendar_vertical_divider"
+		        android:showDividers="middle"
+		        >
+
+		         <TextView
+		             android:layout_weight="1"
+		             android:layout_width="0dp"
+		             android:layout_height="match_parent"
+		             android:gravity="center"
+		             android:text="@string/track"
+		             android:textColor="#FFF"
+		              android:background="#4d4d4d"/>
+		         <TextView
+		             android:id="@+id/month"
+		             android:layout_weight="3"
+		             android:layout_width="0dp"
+		             android:layout_height="match_parent"
+		             android:gravity="center"
+		              android:background="#4d4d4d"
+		              android:text="@string/Date"
+		            android:textColor="#FFFFFF"
+		              />
+		         <TextView
+		             android:textColor="#FFF"
+		              android:background="#4d4d4d"
+		             android:layout_weight="2"
+		             android:layout_width="0dp"
+		             android:text="@string/own"
+		             android:layout_height="match_parent" 
+		             android:gravity="center"
+		             />
+		         <TextView
+		             android:textColor="#FFF"
+		              android:background="#4d4d4d"
+		             android:layout_weight="1"
+		             android:layout_width="0dp"
+		             android:layout_height="match_parent"
+		             android:gravity="center"
+		             />
+		     </LinearLayout>
+		     <ListView 
+		         android:background="@color/layout_backgroud"
+		         android:dividerHeight="1dp"
+		         android:divider="#9FFF"
+		         android:id="@+id/myReservationList"
+		         android:layout_width="match_parent"
+		         android:layout_height="wrap_content"
+		         />
+	    </LinearLayout>
+	    
+	    </RelativeLayout>

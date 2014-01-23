@@ -5,6 +5,8 @@ import java.util.regex.Pattern;
 
 import pl.projektzespolowy.srp.R;
 import pl.projektzespolowy.srp.connection.Login;
+import pl.projektzespolowy.srp.connection.Reservation;
+import pl.projektzespolowy.srp.connection.Reservation.Res;
 import pl.projektzespolowy.srp.utils.Settings;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -16,9 +18,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
@@ -28,10 +33,16 @@ public class AccountFragment extends Fragment {
 	private Typeface tf;
 	private ViewFlipper vf;
 
+	private ListView myReserv;
+	private ResAdapter adapter;
+	
+	LayoutInflater inflater;
+	AlertDialog areYouSure;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		
+		this.inflater = inflater;
 		View view = inflater.inflate(R.layout.account_fragment, null);
 		initViews(view, inflater);
 		
@@ -48,6 +59,7 @@ public class AccountFragment extends Fragment {
 		initRegisterLayout(view);
 		
 		Login.LoginResponse loginRes = Login.getLogin();
+		
 		if(loginRes != null)
 		{
 			if(loginRes.equals("null"))
@@ -65,6 +77,7 @@ public class AccountFragment extends Fragment {
 			surn.setText(loginRes.nazw.equals(null) ? getString(R.string.noval) : loginRes.nazw);
 			phone.setText(loginRes.tel.equals(null) ? getString(R.string.noval) : loginRes.tel);
 			vf.showPrevious();
+			adapter.update();
 		}
 		
 	}
@@ -151,6 +164,10 @@ public class AccountFragment extends Fragment {
 		surn.setTypeface(tf);
 		phone.setTypeface(tf);
 		hello.setTypeface(tf);
+		
+		myReserv = (ListView)view.findViewById(R.id.myReservationList);
+		adapter = new ResAdapter();
+		myReserv.setAdapter(adapter);
 		
 		Button b;
 		(b = (Button)form.findViewById(R.id.logout_btn)).setOnClickListener(
@@ -312,12 +329,13 @@ public class AccountFragment extends Fragment {
 				}
 				
 				
+				
 				mail.setText(resp.mail.equals(null) ? getString(R.string.noval) : resp.mail);
 				surn.setText(resp.nazw.equals(null) ? getString(R.string.noval) : resp.nazw);
 				phone.setText(resp.tel.equals(null) ? getString(R.string.noval) : resp.tel);
 				vf.showPrevious();
 				clearLoginForm();
-				
+				adapter.update();
 			}
 			else
 			{
@@ -338,7 +356,6 @@ public class AccountFragment extends Fragment {
 			super.onPostExecute(result);
 		}
 	}
-	
 	
 	private class RegisterTask extends AsyncTask<Void, Void, Void>
 	{
@@ -503,4 +520,145 @@ public class AccountFragment extends Fragment {
 	}
 	
 	
+	private class ResTask extends AsyncTask<String, Void, Void>
+	{
+		ProgressDialog pd;
+		Res[] resp;
+	
+		public int type = 0;
+		
+		@Override
+		protected void onPreExecute() {
+			pd = new ProgressDialog(getActivity());
+			pd.setTitle("£¹czenie z serwerem");
+			pd.setMessage("Proszê Czekaæ.");
+			pd.setCancelable(false);
+			pd.setIndeterminate(true);
+			pd.show();
+			super.onPreExecute();
+		}
+		
+		@Override
+		protected Void doInBackground(String... params) {
+			if(Settings.isOnline(getActivity()))
+			{
+				if(type == 1)
+				{
+					if(idToRemove != 0)
+					{
+						Reservation.delete(idToRemove);
+						idToRemove = 0;
+					}
+				}
+				else
+				{
+					if(Login.getLogin() != null)
+					{
+						resp = Reservation
+								.getUserReservations(Login.getLogin().idUzytkownik);
+					}
+				}
+			}
+			return null;
+		}
+		
+		@Override
+		protected void onPostExecute(Void result) {
+			pd.cancel();
+			if(type == 1)
+			{
+				adapter.update();
+			}
+			else if(resp != null)
+				adapter.updateDataSet(resp);
+			
+			super.onPostExecute(result);
+		}
+	}
+	
+	class ResAdapter extends BaseAdapter
+	{
+		Res[] content = new Res[]{};
+		
+		@Override
+		public int getCount() {
+			return content.length;
+		}
+
+		@Override
+		public Object getItem(int position) {
+			return null;
+		}
+
+		@Override
+		public long getItemId(int position) {
+			return position;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			ResHolder h = new ResHolder();
+			View v = inflater.inflate(R.layout.myreservwtion_layout, null);
+			Res r = content[position];
+			
+			h.removeButton = (ImageButton)v.findViewById(R.id.delete);
+			h.removeButton.setId(r.id);
+			h.removeButton.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) 
+				{
+					removeRes(v.getId());	
+				}
+			});
+			
+			((TextView)v.findViewById(R.id.track)).setText(""+r.track);
+			((TextView)v.findViewById(R.id.date)).setText(""+r.time);
+			((TextView)v.findViewById(R.id.own)).setText(r.own ? R.string.yes : R.string.No);
+			
+			v.setTag(h);
+			return v;
+		}
+		
+		public void updateDataSet(Res[] cont)
+		{
+			content = cont;
+			notifyDataSetChanged();
+		}
+
+		public void update()
+		{
+			(new ResTask()).execute();
+		}
+	}
+	
+	int idToRemove = 0;
+	private void removeRes(int id)
+	{
+		idToRemove = id;
+		AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
+		b.setMessage(R.string.sure);
+		b.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				areYouSure.cancel();
+				ResTask task = new  ResTask();
+				task.type = 1;
+				task.execute();
+			}
+		});
+		b.setNegativeButton(R.string.No,  new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				areYouSure.cancel();
+				
+			}
+		});
+		areYouSure = b.create();
+		areYouSure.show();
+	}
+	
+	class ResHolder
+	{
+		ImageButton removeButton;
+	}
 }

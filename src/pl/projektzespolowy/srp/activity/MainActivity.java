@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -36,6 +37,9 @@ public class MainActivity extends FragmentActivity {
 	Typeface tf;
 	LayoutInflater inflater;
 	int selected = 0;
+	
+	ReservationFragment resFrag;
+	
     
 	String[] catNames;
 	
@@ -63,12 +67,21 @@ public class MainActivity extends FragmentActivity {
 		 return super.onMenuItemSelected(featureId, item);
 	}
 
-	 
+	@Override
+	public void onBackPressed() {
+		if(selected == 3)
+		{
+			resFrag.onBackPressed();
+		}
+	} 
+	
 	    @Override
 	    protected void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.main_layout);
-	        
+	        getWindow().setFlags(
+	        		WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+	        		WindowManager.LayoutParams.FLAG_FULLSCREEN);
 	        
 	        inflater = (LayoutInflater) getApplicationContext()
 	        		.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -123,6 +136,12 @@ public class MainActivity extends FragmentActivity {
 	        
 	    }
 	
+	    public void selectCat(int i)
+	    {
+	    	selected = i;
+	    	selectCathegory(i);
+	    }
+	    
 	    private void selectCathegory(int catId)
 	    {
 	    	FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -143,8 +162,8 @@ public class MainActivity extends FragmentActivity {
 				ft.replace(R.id.content_frame, fag3);
 				break;
 			case 3 :
-				ReservationFragment fag4 = new ReservationFragment();
-				ft.replace(R.id.content_frame, fag4);
+				resFrag = new ReservationFragment();
+				ft.replace(R.id.content_frame, resFrag);
 				break;
 			case 4 :
 				ContactFragment fag2 = new ContactFragment();

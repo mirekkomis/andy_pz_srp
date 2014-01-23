@@ -7,9 +7,9 @@
     
      <LinearLayout
         android:id="@+id/header_month"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:orientation="horizontal"
         android:weightSum="7"
         android:divider="@drawable/calendar_vertical_divider"
@@ -45,7 +45,7 @@
     
     <LinearLayout
         android:id="@+id/header"
-        android:layout_below="@+id/header_month"
+        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -124,10 +124,11 @@
         android:id="@+id/calendar_grid"
         android:numColumns="7"
         android:layout_below="@+id/header"
+        android:layout_above="@+id/header_month"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="#0FFF"
         android:dividerHeight="0dp"
-        />"
+        />
 
 </RelativeLayout>

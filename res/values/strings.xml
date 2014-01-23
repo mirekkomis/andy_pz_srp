@@ -25,6 +25,44 @@
     <string name="short_saturday">Sb</string>
     <string name="short_sunday">Nd</string>
     
+    <string name="track">Tor</string>
+    <string name="Date">Data</string>
+    <string name="own">Wył</string>
+    <string name="yes">TAK</string>
+    <string name="No">Nie</string>
+    <string name="myRes">Moje Rezerwacje</string>
+    <string name="sure">Czy na pewno chcesz odwołać rezerwację?</string>
+    
+    <string name="hour">Godzina</string>
+    
+    <string-array name="week_shorts">
+        <item>Pn</item>
+        <item>Wt</item>
+        <item>Śr</item>
+        <item>Cz</item>
+        <item>Pt</item>
+        <item>Sb</item>
+        <item>Nd</item>
+    </string-array>
+    
+    <string name="closed">NIECZYNNE</string>
+    <string name="noconection">Błąd połączenia z internetem</string>
+    <string name="refresh">Odśwież</string>
+    
+    <string name="logtores">Zaloguj się by rezerwować</string>
+    <string name="logtores_yes">Zaloguj się</string>
+    <string name="logtores_no">Anuluj</string>
+    
+    <string name="begin_d">Termin:</string>
+    <string name="track_d">Tor:</string>
+    <string name="user_d">Użytkownik:</string>
+    <string name="own_d">Na wyłączność:</string>
+    <string name="reserve">Rezerwuj</string>
+    <string name="places">Miejsca:</string>
+    <string name="cancel">Anuluj</string>
+    <string name="you_have_reservation">Masz już rezerwacje w tym terminie. Przejdź do:</string>
+    <string name="goto_reservation">Moje Rezerwacje &gt;</string>
+    
     <string-array name="prices_desc">
         <item>Typ</item>
         <item>Taryfa</item>
