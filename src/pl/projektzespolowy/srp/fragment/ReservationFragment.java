@@ -455,7 +455,7 @@ public class ReservationFragment extends Fragment {
 			{
 				for(int i = 0; i < openingHours.length; i++)
 				{
-					if(month == minMonth && day == minDay && getMinHour(minHour).equals(openingHours[i]))
+					if(month == minMonth && day == minDay && getIntVal(getMinHour(minHour))+1 >= getIntVal(openingHours[i])) 
 					{
 						holder.resType[i] = -2;
 						holder.hours[i] = (Button)inflater.inflate(R.layout.hour_element, null);
@@ -606,6 +606,11 @@ public class ReservationFragment extends Fragment {
 		}
 	}
 	
+	public int getIntVal(String hour)
+	{
+		return 10 * Integer.parseInt(""+hour.charAt(0)) + Integer.parseInt(""+hour.charAt(1));
+	}
+	
 	private class TrackHolder
 	{
 		public Button[] hours;
@@ -677,7 +682,7 @@ public class ReservationFragment extends Fragment {
 				}
 			});
 			
-			if(places >3)
+			if(places == 3)
 				box.setVisibility(View.VISIBLE);
 			
 			((Button)view.findViewById(R.id.cancel))
